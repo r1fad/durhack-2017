@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+      var results =[
+  {
+    "NAME": "Frosterley Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.726964,
+    "Longitude": -1.958682
+  },
+  {
+    "NAME": "Howden-le-Wear Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.697641,
+    "Longitude": -1.7492019
+  },
+  {
+    "NAME": "Coundon Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.661485,
+    "Longitude": -1.6349263
+  },
+  {
+    "NAME": "Burtree Ford Cemetery Cowshill",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.758648,
+    "Longitude": -2.2289214
+  },
+  {
+    "NAME": "Crosshill Cemetery Stanhope",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.749878,
+    "Longitude": -2.0099733
+  },
+  {
+    "NAME": "Crook Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.714699,
+    "Longitude": -1.7369894
+  },
+  {
+    "NAME": "Dans Castle Cemetery Tow Law",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.749251,
+    "Longitude": -1.8204401
+  },
+  {
+    "NAME": "Escomb Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.660955,
+    "Longitude": -1.7118513
+  },
+  {
+    "NAME": "Hunwick Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.688623,
+    "Longitude": -1.7035425
+  },
+  {
+    "NAME": "Rookhope Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.774592,
+    "Longitude": -2.0917784
+  },
+  {
+    "NAME": "South Church Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.647394,
+    "Longitude": -1.6595993
+  },
+  {
+    "NAME": "St Johns Chapel Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.736257,
+    "Longitude": -2.1787401
+  },
+  {
+    "NAME": "Thornley Road Cemetery Tow Law",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.741728,
+    "Longitude": -1.8192773
+  },
+  {
+    "NAME": "Town Cemetery Bishop Auckland",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.658568,
+    "Longitude": -1.6675044
+  },
+  {
+    "NAME": "Witton-le-Wear Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.679641,
+    "Longitude": -1.7720024
+  },
+  {
+    "NAME": "Witton Park Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.661608,
+    "Longitude": -1.7339216
+  },
+  {
+    "NAME": "West Auckland Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.628103,
+    "Longitude": -1.7133225
+  },
+  {
+    "NAME": "Willington Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.71216,
+    "Longitude": -1.6757119
+  },
+  {
+    "NAME": "South Road Cemetery Durham City",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.758028,
+    "Longitude": -1.5844894
+  },
+  {
+    "NAME": "Meadowfield Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.753232,
+    "Longitude": -1.6126141
+  },
+  {
+    "NAME": "Ushaw Moor Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.775945,
+    "Longitude": -1.6398978
+  },
+  {
+    "NAME": "College View Cemetery Esh Winning",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.768903,
+    "Longitude": -1.7083033
+  },
+  {
+    "NAME": "Parkwood Cemetery Esh Winning",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.765984,
+    "Longitude": -1.7205092
+  },
+  {
+    "NAME": "Barnard Castle Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.544236,
+    "Longitude": -1.9184906
+  },
+  {
+    "NAME": "Cockfield Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.615698,
+    "Longitude": -1.8010525
+  },
+  {
+    "NAME": "Romaldkirk Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.597905,
+    "Longitude": -2.0077683
+  },
+  {
+    "NAME": "Staindrop Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.58066,
+    "Longitude": -1.7969994
+  },
+  {
+    "NAME": "Evenwood Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.625138,
+    "Longitude": -1.7634941
+  },
+  {
+    "NAME": "Woodland Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.632082,
+    "Longitude": -1.8962412
+  },
+  {
+    "NAME": "Gainford Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.544097,
+    "Longitude": -1.7424148
+  },
+  {
+    "NAME": "Lynesack Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.630267,
+    "Longitude": -1.8600609
+  },
+  {
+    "NAME": "Hamsterley Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.673498,
+    "Longitude": -1.8050968
+  },
+  {
+    "NAME": "Etherley Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.649961,
+    "Longitude": -1.7464577
+  },
+  {
+    "NAME": "Pelton Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.871983,
+    "Longitude": -1.6191437
+  },
+  {
+    "NAME": "Sacriston Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.820041,
+    "Longitude": -1.6309308
+  },
+  {
+    "NAME": "Chester-le-Street Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.85085,
+    "Longitude": -1.5689431
+  },
+  {
+    "NAME": "Great Lumley Burial Ground",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.836624,
+    "Longitude": -1.5420198
+  },
+  {
+    "NAME": "Langley Park Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.798225,
+    "Longitude": -1.6896449
+  },
+  {
+    "NAME": "Lanchester Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.827108,
+    "Longitude": -1.7527282
+  },
+  {
+    "NAME": "Stanley Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.874305,
+    "Longitude": -1.6867548
+  },
+  {
+    "NAME": "Harelaw Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.868978,
+    "Longitude": -1.7537656
+  },
+  {
+    "NAME": "Castleside Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.830988,
+    "Longitude": -1.8831862
+  },
+  {
+    "NAME": "Benfieldside Cemetery Blackhill",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.862324,
+    "Longitude": -1.8438369
+  },
+  {
+    "NAME": "Low Westwood Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.900716,
+    "Longitude": -1.8258182
+  },
+  {
+    "NAME": "Murton Cemetery",
+    "OPERATOR": "Murton Parish Council",
+    "Latitude": 54.815251,
+    "Longitude": -1.3917086
+  },
+  {
+    "NAME": "Seaham Cemetery",
+    "OPERATOR": "Seaham Town Council",
+    "Latitude": 54.833153,
+    "Longitude": -1.340283
+  },
+  {
+    "NAME": "Horden Cemetery",
+    "OPERATOR": "Horden Parish Council",
+    "Latitude": 54.774012,
+    "Longitude": -1.3369082
+  },
+  {
+    "NAME": "Peterlee Cemetery",
+    "OPERATOR": "Peterlee Town Council",
+    "Latitude": 54.760043,
+    "Longitude": -1.3168878
+  },
+  {
+    "NAME": "Aycliffe Cemetery",
+    "OPERATOR": "Great Aycliffe Town Council",
+    "Latitude": 54.623702,
+    "Longitude": -1.586571
+  },
+  {
+    "NAME": "Shildon Cemetery",
+    "OPERATOR": "Shildon Town Council",
+    "Latitude": 54.632477,
+    "Longitude": -1.6631783
+  },
+  {
+    "NAME": "Spennymoor Cemetery",
+    "OPERATOR": "Spennymoor Town Council",
+    "Latitude": 54.690124,
+    "Longitude": -1.6112603
+  },
+  {
+    "NAME": "Ferryhill Cemetery",
+    "OPERATOR": "Ferryhill Town Council",
+    "Latitude": 54.685104,
+    "Longitude": -1.5333493
+  },
+  {
+    "NAME": "Sedgefield Cemetery",
+    "OPERATOR": "Sedgefield Town Council",
+    "Latitude": 54.656045,
+    "Longitude": -1.4448665
+  },
+  {
+    "NAME": "Chilton Cemetery",
+    "OPERATOR": "Chilton Parish Council",
+    "Latitude": 54.666997,
+    "Longitude": -1.5550922
+  },
+  {
+    "NAME": "Tudhoe Cemetery",
+    "OPERATOR": "Spennymoor Town Council",
+    "Latitude": 54.707355,
+    "Longitude": -1.5878628
+  },
+  {
+    "NAME": "Moorside Cemetery",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.841185,
+    "Longitude": -1.8721638
+  },
+  {
+    "NAME": "Startforth Cemetary",
+    "OPERATOR": "Durham County Council",
+    "Latitude": 54.539254,
+    "Longitude": -1.9284539
+  }
+];
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: new google.maps.LatLng(54.7294, -1.8812),
+          mapTypeId: google.maps.MapTypeId.HYBRID
+        });
+
+       
+     
+        for (var i = 0; i < results.length; i++) {
+         
+          var latLng = new google.maps.LatLng(results[i]["Latitude"],results[i]["Longitude"]);
+          var marker = new google.maps.Marker({
+            position: latLng,
+            map: map
+          });
+        }
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBh08cBczieNOH4YrgqXrfz3dEpRDrh_QU &callback=initMap">
+    </script>
+  </body>
+</html>

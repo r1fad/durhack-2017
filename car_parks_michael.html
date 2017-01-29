@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple markers</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+
+var ebin = [
+ {
+   "Carpark Name": "Barnard Castle Galgate (Morrisons)",
+   "Postcode": "DL128EQ",
+   "Description": "P&D",
+   "LATITUDE": 54.54458,
+   "LONGITUDE": -1.9226635
+ },
+ {
+   "Carpark Name": "Barnard Castle Queen Street (Hole in the Wall)",
+   "Postcode": "DL128GB",
+   "Description": "P&D",
+   "LATITUDE": 54.542387,
+   "LONGITUDE": -1.9223121
+ },
+ {
+   "Carpark Name": "Baybridge (Picnic area near Blanchland)",
+   "Postcode": "DH8 9UB",
+   "Description": "Free country park",
+   "LATITUDE": 54.84454,
+   "LONGITUDE": -2.0675672
+ },
+ {
+   "Carpark Name": "Belmont Park and Ride",
+   "Postcode": "DH1 1SR",
+   "Description": "Park and Ride",
+   "LATITUDE": 54.794769,
+   "LONGITUDE": -1.5243579
+ },
+ {
+   "Carpark Name": "Bishop Auckland Batts Terrace",
+   "Postcode": "DL147QE",
+   "Description": "Free",
+   "LATITUDE": 54.667799,
+   "LONGITUDE": -1.6748867
+ },
+ {
+   "Carpark Name": "Bishop Auckland Castle Chare",
+   "Postcode": "DL147JF",
+   "Description": "P&D",
+   "LATITUDE": 54.664692,
+   "LONGITUDE": -1.672369
+ },
+ {
+   "Carpark Name": "Bishop Auckland Dam Head",
+   "Postcode": "DL147PA",
+   "Description": "Free",
+   "LATITUDE": 54.662805,
+   "LONGITUDE": -1.6894215
+ },
+ {
+   "Carpark Name": "Bishop Auckland Gibbon Street",
+   "Postcode": "DL147DL",
+   "Description": "Free",
+   "LATITUDE": 54.661932,
+   "LONGITUDE": -1.6787161
+ },
+ {
+   "Carpark Name": "Bishop Auckland Kingsway aka R/O Belverdere Club",
+   "Postcode": "DL147JN",
+   "Description": "P&D",
+   "LATITUDE": 54.661868,
+   "LONGITUDE": -1.674717
+ },
+ {
+   "Carpark Name": "Bishop Auckland South Terrace",
+   "Postcode": "DL147LD",
+   "Description": "P&D",
+   "LATITUDE": 54.660278,
+   "LONGITUDE": -1.6749003
+ },
+ {
+   "Carpark Name": "Bishop Auckland Tenters Street (aka adj. 5-11 Tenters Street)",
+   "Postcode": "DL147AD",
+   "Description": "P&D",
+   "LATITUDE": 54.663286,
+   "LONGITUDE": -1.6773722
+ },
+ {
+   "Carpark Name": "Bishop Auckland Victoria Terrace",
+   "Postcode": "DL147JH",
+   "Description": "P&D",
+   "LATITUDE": 54.663509,
+   "LONGITUDE": -1.6735412
+ },
+ {
+   "Carpark Name": "Bishop Auckland West Mills",
+   "Postcode": "DL147PA",
+   "Description": "Free",
+   "LATITUDE": 54.663816,
+   "LONGITUDE": -1.6875534
+ },
+ {
+   "Carpark Name": "Blackhall (Blackhall Rock Picnic Area)",
+   "Postcode": "TS27 4AT",
+   "Description": "Free",
+   "LATITUDE": 54.741335,
+   "LONGITUDE": -1.269408
+ },
+ {
+   "Carpark Name": "Blackhall, Middle Street (Pit Wheel)",
+   "Postcode": "TS274ED",
+   "Description": "Free (Coast)",
+   "LATITUDE": 54.749042,
+   "LONGITUDE": -1.2915166
+ },
+ {
+   "Carpark Name": "Blanchland (Carricks Picnic Area on Derwent Reservoir New Blanchland)",
+   "Postcode": "DH8 9PL",
+   "Description": "Free country park",
+   "LATITUDE": 54.857002,
+   "LONGITUDE": -2.0270415
+ },
+ {
+   "Carpark Name": "Bracks Road (Auckland Walk)",
+   "Postcode": "DL14 7GF",
+   "Description": "Free country park",
+   "LATITUDE": 54.656708,
+   "LONGITUDE": -1.6579404
+ },
+ {
+   "Carpark Name": "Brandon Grove (rear of Sainsbury's Local)",
+   "Postcode": "DH7 8AR",
+   "Description": "Free (Housing Estate parking)",
+   "LATITUDE": 54.747243,
+   "LONGITUDE": -1.6372473
+ },
+ {
+   "Carpark Name": "Brandon/Bishop Walk (Brancepeth Station)",
+   "Postcode": "DH7 8EN",
+   "Description": "Free country park",
+   "LATITUDE": 54.738405,
+   "LONGITUDE": -1.66067
+ },
+ {
+   "Carpark Name": "Broom Park (Broompark Picnic Area, Durham)",
+   "Postcode": "DH7 7RL",
+   "Description": "Free country park",
+   "LATITUDE": 54.767921,
+   "LONGITUDE": -1.6113703
+ },
+ {
+   "Carpark Name": "Carrville, Broomside Court (Housing Estate Parking)",
+   "Postcode": "DH1 2QU",
+   "Description": "Free (Housing Estate Parking)",
+   "LATITUDE": 54.787343,
+   "LONGITUDE": -1.5235897
+ },
+ {
+   "Carpark Name": "Chester le Street (Waldridge Fell)",
+   "Postcode": "DH2 3RY",
+   "Description": "Free country park",
+   "LATITUDE": 54.843143,
+   "LONGITUDE": -1.6126726
+ },
+ {
+   "Carpark Name": "Chester le Street Burns Green",
+   "Postcode": "DH3 3QH",
+   "Description": "P&D",
+   "LATITUDE": 54.856792,
+   "LONGITUDE": -1.5696742
+ },
+ {
+   "Carpark Name": "Chester le Street Civic Centre A (Visitor Car Park)",
+   "Postcode": "DH3 3TY",
+   "Description": "P&D",
+   "LATITUDE": 54.861054,
+   "LONGITUDE": -1.5729004
+ },
+ {
+   "Carpark Name": "Chester le Street Civic Centre B (Staff Car Park)",
+   "Postcode": "DH3 3SN",
+   "Description": "P&D",
+   "LATITUDE": 54.86063,
+   "LONGITUDE": -1.5723908
+ },
+ {
+   "Carpark Name": "Chester le Street Cone Terrace",
+   "Postcode": "DH3 3QH",
+   "Description": "P&D",
+   "LATITUDE": 54.85803,
+   "LONGITUDE": -1.5716082
+ },
+ {
+   "Carpark Name": "Chester le Street Cone Terrace (adjacent to taxi rank)",
+   "Postcode": "DH3 3RF",
+   "Description": "P&D",
+   "LATITUDE": 54.858305,
+   "LONGITUDE": -1.5730852
+ },
+ {
+   "Carpark Name": "Chester le Street Cricket Club aka Mains Park Road",
+   "Postcode": "DH3 3PF",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.852453,
+   "LONGITUDE": -1.5726953
+ },
+ {
+   "Carpark Name": "Chester le Street Foundry Lane",
+   "Postcode": "DH3 3EJ",
+   "Description": "P&D",
+   "LATITUDE": 54.856002,
+   "LONGITUDE": -1.5748074
+ },
+ {
+   "Carpark Name": "Chester le Street Leisure Centre",
+   "Postcode": "DH3 3QH",
+   "Description": "P&D",
+   "LATITUDE": 54.856227,
+   "LONGITUDE": -1.5698516
+ },
+ {
+   "Carpark Name": "Chester le Street Low Chare aka Blands Opening",
+   "Postcode": "DH3 3QF",
+   "Description": "P&D",
+   "LATITUDE": 54.857208,
+   "LONGITUDE": -1.5727541
+ },
+ {
+   "Carpark Name": "Chester le Street Lucy Street aka Villiers Place",
+   "Postcode": "DH3 3UP",
+   "Description": "P&D",
+   "LATITUDE": 54.859625,
+   "LONGITUDE": -1.5753924
+ },
+ {
+   "Carpark Name": "Chester le Street Middle Chare",
+   "Postcode": "DH3 3QD",
+   "Description": "P&D",
+   "LATITUDE": 54.8563,
+   "LONGITUDE": -1.5727637
+ },
+ {
+   "Carpark Name": "Chester le Street North Burns",
+   "Postcode": "DH3 3TF",
+   "Description": "P&D",
+   "LATITUDE": 54.85922,
+   "LONGITUDE": -1.5777178
+ },
+ {
+   "Carpark Name": "Chester le Street Osbourne Road",
+   "Postcode": "DH3 3DS",
+   "Description": "P&D",
+   "LATITUDE": 54.854627,
+   "LONGITUDE": -1.5748841
+ },
+ {
+   "Carpark Name": "Chester le Street Riverside Donald Owen Clark A",
+   "Postcode": "DH3 3SJ",
+   "Description": "P&D (Leisure Services)",
+   "LATITUDE": 54.851303,
+   "LONGITUDE": -1.5599828
+ },
+ {
+   "Carpark Name": "Chester le Street Riverside Donald Owen Clark B",
+   "Postcode": "DH3 3SJ",
+   "Description": "P&D (Leisure Services)",
+   "LATITUDE": 54.851474,
+   "LONGITUDE": -1.5600277
+ },
+ {
+   "Carpark Name": "Chester le Street Riverside Donald Owen Clark C",
+   "Postcode": "DH3 3SJ",
+   "Description": "P&D (Leisure Services)",
+   "LATITUDE": 54.851477,
+   "LONGITUDE": -1.5608842
+ },
+ {
+   "Carpark Name": "Chester le Street Riverside North Ropery Lane",
+   "Postcode": "DH3 3SH",
+   "Description": "P&D (Leisure Services)",
+   "LATITUDE": 54.852464,
+   "LONGITUDE": -1.5630073
+ },
+ {
+   "Carpark Name": "Chester le Street Riverside Pavillion Overflow",
+   "Postcode": "DH3 3QT",
+   "Description": "P&D (Leisure Services)",
+   "LATITUDE": 54.850375,
+   "LONGITUDE": -1.5642291
+ },
+ {
+   "Carpark Name": "Chester le Street Riverside South Ropery Lane A",
+   "Postcode": "DH3 3SH",
+   "Description": "P&D (Leisure Services)",
+   "LATITUDE": 54.851005,
+   "LONGITUDE": -1.5620108
+ },
+ {
+   "Carpark Name": "Chester le Street Riverside South Ropery Lane B",
+   "Postcode": "DH3 3SH",
+   "Description": "P&D (Leisure Services)",
+   "LATITUDE": 54.850936,
+   "LONGITUDE": -1.5628681
+ },
+ {
+   "Carpark Name": "Chester le Street Riverside South Ropery Lane C",
+   "Postcode": "DH3 3QT",
+   "Description": "P&D (Leisure Services)",
+   "LATITUDE": 54.85074,
+   "LONGITUDE": -1.5635243
+ },
+ {
+   "Carpark Name": "Chester le Street St Mary?ÇÖs",
+   "Postcode": "DH3 3PZ",
+   "Description": "P&D",
+   "LATITUDE": 54.857188,
+   "LONGITUDE": -1.5724116
+ },
+ {
+   "Carpark Name": "Chester le Street Wilfred Street",
+   "Postcode": "DH3 3HX",
+   "Description": "P&D",
+   "LATITUDE": 54.851942,
+   "LONGITUDE": -1.5753484
+ },
+ {
+   "Carpark Name": "Chester le Street Youth Centre",
+   "Postcode": "DH3 3QH",
+   "Description": "P&D",
+   "LATITUDE": 54.856633,
+   "LONGITUDE": -1.5704392
+ },
+ {
+   "Carpark Name": "Consett Albert Road",
+   "Postcode": "DH8 5QU",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.851563,
+   "LONGITUDE": -1.8336769
+ },
+ {
+   "Carpark Name": "Consett Allensford (East)",
+   "Postcode": "DH8 9BA",
+   "Description": "Free country park",
+   "LATITUDE": 54.847829,
+   "LONGITUDE": -1.8747903
+ },
+ {
+   "Carpark Name": "Consett Allensford (West)",
+   "Postcode": "DH8 9BA",
+   "Description": "Free country park",
+   "LATITUDE": 54.846451,
+   "LONGITUDE": -1.8804008
+ },
+ {
+   "Carpark Name": "Consett Civic Centre",
+   "Postcode": "DH8 6LS",
+   "Description": "Free",
+   "LATITUDE": 54.857885,
+   "LONGITUDE": -1.8307224
+ },
+ {
+   "Carpark Name": "Consett Community Centre, Leadgate",
+   "Postcode": "DH8 7PP",
+   "Description": "Free",
+   "LATITUDE": 54.858458,
+   "LONGITUDE": -1.8050951
+ },
+ {
+   "Carpark Name": "Consett Derwent Street, Blackhill",
+   "Postcode": "DH8 8LP",
+   "Description": "Free",
+   "LATITUDE": 54.860784,
+   "LONGITUDE": -1.848049
+ },
+ {
+   "Carpark Name": "Consett Derwent Walk, Queens Road",
+   "Postcode": "DH8 5XD",
+   "Description": "Free",
+   "LATITUDE": 54.864679,
+   "LONGITUDE": -1.8440148
+ },
+ {
+   "Carpark Name": "Consett Edith Street",
+   "Postcode": "DH8 5DN",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.852868,
+   "LONGITUDE": -1.8349954
+ },
+ {
+   "Carpark Name": "Consett Gibson Street",
+   "Postcode": "DH8 5LB",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.854052,
+   "LONGITUDE": -1.8335888
+ },
+ {
+   "Carpark Name": "Consett Green Street",
+   "Postcode": "DH8 5LB",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.854457,
+   "LONGITUDE": -1.8338052
+ },
+ {
+   "Carpark Name": "Consett Sherburn Terrace",
+   "Postcode": "DH8 6ND",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.852437,
+   "LONGITUDE": -1.8287827
+ },
+ {
+   "Carpark Name": "Consett Shotley Grove Road, Shotley Bridge",
+   "Postcode": "DH8 8SF",
+   "Description": "Free unmarked",
+   "LATITUDE": 54.861608,
+   "LONGITUDE": -1.869155
+ },
+ {
+   "Carpark Name": "Consett Snows Green Road, Shotley Bridge",
+   "Postcode": "DH8 0HA",
+   "Description": "Free unmarked",
+   "LATITUDE": 54.869999,
+   "LONGITUDE": -1.858501
+ },
+ {
+   "Carpark Name": "Consett Sports Centre",
+   "Postcode": "DH8 6LZ",
+   "Description": "Free",
+   "LATITUDE": 54.857227,
+   "LONGITUDE": -1.8289961
+ },
+ {
+   "Carpark Name": "Consett Swimming Baths",
+   "Postcode": "DH8 6LL",
+   "Description": "Free",
+   "LATITUDE": 54.856049,
+   "LONGITUDE": -1.8281132
+ },
+ {
+   "Carpark Name": "Consett Valley Gardens, Blackhill",
+   "Postcode": "DH8 8RQ",
+   "Description": "Free",
+   "LATITUDE": 54.86134,
+   "LONGITUDE": -1.8546834
+ },
+ {
+   "Carpark Name": "Coundon Station (Auckland Walk)",
+   "Postcode": "DL14 8QD",
+   "Description": "Free country park",
+   "LATITUDE": 54.665398,
+   "LONGITUDE": -1.6484568
+ },
+ {
+   "Carpark Name": "Cowshill",
+   "Postcode": "DL131JF",
+   "Description": "Free country park",
+   "LATITUDE": 54.760328,
+   "LONGITUDE": -2.224642
+ },
+ {
+   "Carpark Name": "Coxhoe, Green Crescent (Housing Estate Parking)",
+   "Postcode": "DH6 4BE",
+   "Description": "Free (Housing Estate Parking)",
+   "LATITUDE": 54.714394,
+   "LONGITUDE": -1.5000903
+ },
+ {
+   "Carpark Name": "Coxhoe, Park Avenue (Housing Estate Parking)",
+   "Postcode": "DH6 4JL",
+   "Description": "Free (Housing Estate Parking)",
+   "LATITUDE": 54.725572,
+   "LONGITUDE": -1.5175911
+ },
+ {
+   "Carpark Name": "Crimdon, Crimdon Parks",
+   "Postcode": "TS274BL",
+   "Description": "Free",
+   "LATITUDE": 54.727227,
+   "LONGITUDE": -1.252038
+ },
+ {
+   "Carpark Name": "Crook Addison Street x 3",
+   "Postcode": "DL159ES",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.716309,
+   "LONGITUDE": -1.7460599
+ },
+ {
+   "Carpark Name": "Crook Arthur Street",
+   "Postcode": "DL159DT",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.715944,
+   "LONGITUDE": -1.7435319
+ },
+ {
+   "Carpark Name": "Crook Church Hill",
+   "Postcode": "DL159DN",
+   "Description": "Free",
+   "LATITUDE": 54.717304,
+   "LONGITUDE": -1.7407757
+ },
+ {
+   "Carpark Name": "Crook Council Offices",
+   "Postcode": "DL159EL",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.715634,
+   "LONGITUDE": -1.7459865
+ },
+ {
+   "Carpark Name": "Crook Glenholme Drive",
+   "Postcode": "DL158PU",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.71194,
+   "LONGITUDE": -1.7456991
+ },
+ {
+   "Carpark Name": "Crook Hope / Wesley Street",
+   "Postcode": "DL159HU",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.716816,
+   "LONGITUDE": -1.7480747
+ },
+ {
+   "Carpark Name": "Crook Market Place",
+   "Postcode": "DL158QH",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.714439,
+   "LONGITUDE": -1.7457766
+ },
+ {
+   "Carpark Name": "Crook Mill Street",
+   "Postcode": "DL159BJ",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.715321,
+   "LONGITUDE": -1.7421388
+ },
+ {
+   "Carpark Name": "Crook West Road",
+   "Postcode": "DL159PY",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.713101,
+   "LONGITUDE": -1.7508606
+ },
+ {
+   "Carpark Name": "Crook Wilson Street",
+   "Postcode": "DL159EA",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.717209,
+   "LONGITUDE": -1.7470322
+ },
+ {
+   "Carpark Name": "Croxdale, East of Rogerson Terrace (Housing Estate Parking)",
+   "Postcode": "DH6 5JE",
+   "Description": "Free (Housing Estate Parking)",
+   "LATITUDE": 54.728858,
+   "LONGITUDE": -1.5845858
+ },
+ {
+   "Carpark Name": "Durham City Providence Row",
+   "Postcode": "DH1 1LH",
+   "Description": "P&D",
+   "LATITUDE": 54.7809,
+   "LONGITUDE": -1.5719102
+ },
+ {
+   "Carpark Name": "Durham City Sidegate",
+   "Postcode": "DH1 5SY",
+   "Description": "P&D",
+   "LATITUDE": 54.781679,
+   "LONGITUDE": -1.5761777
+ },
+ {
+   "Carpark Name": "Durham City The Sands",
+   "Postcode": "DH1 1SQ",
+   "Description": "P&D",
+   "LATITUDE": 54.780221,
+   "LONGITUDE": -1.5756021
+ },
+ {
+   "Carpark Name": "Durham City The Sands Coach Park",
+   "Postcode": "DH1 1SQ",
+   "Description": "Free for coaches",
+   "LATITUDE": 54.780802,
+   "LONGITUDE": -1.5746632
+ },
+ {
+   "Carpark Name": "Durham City Wharton Park",
+   "Postcode": "DH1 4RN",
+   "Description": "Free",
+   "LATITUDE": 54.780571,
+   "LONGITUDE": -1.5831546
+ },
+ {
+   "Carpark Name": "Durham Sixth Form Centre",
+   "Postcode": "DH1 1RN",
+   "Description": "Free",
+   "LATITUDE": 54.779452,
+   "LONGITUDE": -1.5739622
+ },
+ {
+   "Carpark Name": "Easington Colliery",
+   "Postcode": "SR8 3UX",
+   "Description": "Free (Coast)",
+   "LATITUDE": 54.789607,
+   "LONGITUDE": -1.3180226
+ },
+ {
+   "Carpark Name": "Easington, Seaside Lane",
+   "Postcode": "SR8 3HZ",
+   "Description": "Free",
+   "LATITUDE": 54.784557,
+   "LONGITUDE": -1.3509789
+ },
+ {
+   "Carpark Name": "Easington, Townfield Hill",
+   "Postcode": "SR8 3PF",
+   "Description": "Free",
+   "LATITUDE": 54.787637,
+   "LONGITUDE": -1.3258621
+ },
+ {
+   "Carpark Name": "Ebchester Station (Derwent Valley Walk)",
+   "Postcode": "DH8 0SU",
+   "Description": "Free country park",
+   "LATITUDE": 54.888095,
+   "LONGITUDE": -1.8351947
+ },
+ {
+   "Carpark Name": "Ferryhill Church Lane",
+   "Postcode": "DL178LT",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.688801,
+   "LONGITUDE": -1.5557381
+ },
+ {
+   "Carpark Name": "Ferryhill Eamont Road",
+   "Postcode": "DL178HN",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.687961,
+   "LONGITUDE": -1.5569417
+ },
+ {
+   "Carpark Name": "Framwellgate Moor, Farnham Road (Unmade Land)",
+   "Postcode": "DH1 5LN",
+   "Description": "Free (Housing Estate Parking)",
+   "LATITUDE": 54.794743,
+   "LONGITUDE": -1.5756056
+ },
+ {
+   "Carpark Name": "Frosterley Front Street",
+   "Postcode": "DL132QW",
+   "Description": "Free",
+   "LATITUDE": 54.727541,
+   "LONGITUDE": -1.9617402
+ },
+ {
+   "Carpark Name": "Hawkburn Head (Waskerley Way)",
+   "Postcode": "DH8 9DX",
+   "Description": "Free country park",
+   "LATITUDE": 54.803383,
+   "LONGITUDE": -1.9524443
+ },
+ {
+   "Carpark Name": "Horden Blackhills Road (former colliery)",
+   "Postcode": "SR8 4LG",
+   "Description": "Free",
+   "LATITUDE": 54.768428,
+   "LONGITUDE": -1.3153788
+ },
+ {
+   "Carpark Name": "Horden Sunderland Road",
+   "Postcode": "SR8 4PF",
+   "Description": "Free",
+   "LATITUDE": 54.766931,
+   "LONGITUDE": -1.3209062
+ },
+ {
+   "Carpark Name": "Howden le Wear",
+   "Postcode": "DL158HJ",
+   "Description": "Free",
+   "LATITUDE": 54.694986,
+   "LONGITUDE": -1.7517162
+ },
+ {
+   "Carpark Name": "Howlands Farm Park and Ride",
+   "Postcode": "DH1 3TQ",
+   "Description": "Park and Ride",
+   "LATITUDE": 54.76099,
+   "LONGITUDE": -1.5808227
+ },
+ {
+   "Carpark Name": "Lanchester Cricket Field, Kitswell Road",
+   "Postcode": "DH7 0JP",
+   "Description": "Free unmarked",
+   "LATITUDE": 54.826538,
+   "LONGITUDE": -1.7505215
+ },
+ {
+   "Carpark Name": "Lanchester Kitswell Road",
+   "Postcode": "DH7 0JP",
+   "Description": "Free unmarked",
+   "LATITUDE": 54.826257,
+   "LONGITUDE": -1.7494959
+ },
+ {
+   "Carpark Name": "Lanchester Rear of Front Street",
+   "Postcode": "DH7 0ER",
+   "Description": "Free",
+   "LATITUDE": 54.822012,
+   "LONGITUDE": -1.7436858
+ },
+ {
+   "Carpark Name": "Lanchester Walk (Witton Gilbert Station)",
+   "Postcode": "DH7 9TL",
+   "Description": "Free country park",
+   "LATITUDE": 54.801326,
+   "LONGITUDE": -1.659739
+ },
+ {
+   "Carpark Name": "Leasingthorne",
+   "Postcode": "DL148EJ",
+   "Description": "Free",
+   "LATITUDE": 54.663929,
+   "LONGITUDE": -1.6061928
+ },
+ {
+   "Carpark Name": "Malton (near Lanchester)",
+   "Postcode": "DH7 0TH",
+   "Description": "Free country park",
+   "LATITUDE": 54.812228,
+   "LONGITUDE": -1.7241892
+ },
+ {
+   "Carpark Name": "Mickleton Station (Tees Railway)",
+   "Postcode": "DL12 0JN",
+   "Description": "Free country park",
+   "LATITUDE": 54.605596,
+   "LONGITUDE": -2.0512397
+ },
+ {
+   "Carpark Name": "Murton - East Woods Terrace",
+   "Postcode": "SR7 9BD",
+   "Description": "Free",
+   "LATITUDE": 54.816653,
+   "LONGITUDE": -1.3829418
+ },
+ {
+   "Carpark Name": "Murton - West Woods Terrace",
+   "Postcode": "SR7 9BA",
+   "Description": "Free",
+   "LATITUDE": 54.81666,
+   "LONGITUDE": -1.3842956
+ },
+ {
+   "Carpark Name": "Newton Aycliffe Greenwell Road",
+   "Postcode": "DL5 4DH",
+   "Description": "Free",
+   "LATITUDE": 54.620687,
+   "LONGITUDE": -1.5723848
+ },
+ {
+   "Carpark Name": "Newton Aycliffe Walcher Road",
+   "Postcode": "DL5 4LX",
+   "Description": "Unmade land",
+   "LATITUDE": 54.620355,
+   "LONGITUDE": -1.5750675
+ },
+ {
+   "Carpark Name": "Park Head (Waskerley Way)",
+   "Postcode": "DL13 2ES",
+   "Description": "Free country park",
+   "LATITUDE": 54.783101,
+   "LONGITUDE": -1.9973563
+ },
+ {
+   "Carpark Name": "Pelton Community Centre (Ivyway)",
+   "Postcode": "DH2 1DE",
+   "Description": "Community Centre car park",
+   "LATITUDE": 54.873201,
+   "LONGITUDE": -1.6095953
+ },
+ {
+   "Carpark Name": "Peterlee Grampian Drive",
+   "Postcode": "SR8 2LR",
+   "Description": "Free",
+   "LATITUDE": 54.757333,
+   "LONGITUDE": -1.3536209
+ },
+ {
+   "Carpark Name": "Peterlee Hearts of Oak",
+   "Postcode": "SR8 1EX",
+   "Description": "Free",
+   "LATITUDE": 54.7514,
+   "LONGITUDE": -1.3449527
+ },
+ {
+   "Carpark Name": "Peterlee, St Cuthberts Way",
+   "Postcode": "SR8 1AF",
+   "Description": "Free (Leisure Centre car park)",
+   "LATITUDE": 54.757261,
+   "LONGITUDE": -1.3369799
+ },
+ {
+   "Carpark Name": "Peterlee, York Road",
+   "Postcode": "SR8 2DP",
+   "Description": "Free",
+   "LATITUDE": 54.769001,
+   "LONGITUDE": -1.3475751
+ },
+ {
+   "Carpark Name": "Pow Hill (Country Park, Derwent Reservoir)",
+   "Postcode": "DH8 9NU",
+   "Description": "Free country park",
+   "LATITUDE": 54.859997,
+   "LONGITUDE": -1.9836743
+ },
+ {
+   "Carpark Name": "Rowley Station (Waskerley Way)",
+   "Postcode": "DH8 9AQ",
+   "Description": "Free country park",
+   "LATITUDE": 54.825471,
+   "LONGITUDE": -1.8663921
+ },
+ {
+   "Carpark Name": "Sacriston Depot (Lingey Close)",
+   "Postcode": "DH7 6AN",
+   "Description": "Council Depot",
+   "LATITUDE": 54.824189,
+   "LONGITUDE": -1.6353911
+ },
+ {
+   "Carpark Name": "Sacriston Front Street",
+   "Postcode": "DH7 6LE",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.817738,
+   "LONGITUDE": -1.6270146
+ },
+ {
+   "Carpark Name": "Sacriston John Street",
+   "Postcode": "DH7 6HJ",
+   "Description": "Free",
+   "LATITUDE": 54.81881,
+   "LONGITUDE": -1.624935
+ },
+ {
+   "Carpark Name": "Seaham Adj Seaham Hall",
+   "Postcode": "SR7 7AG",
+   "Description": "Free (Coast)",
+   "LATITUDE": 54.850212,
+   "LONGITUDE": -1.3439452
+ },
+ {
+   "Carpark Name": "Seaham Adj Seaham Hall",
+   "Postcode": "SR7 7AG",
+   "Description": "Free (Coast)",
+   "LATITUDE": 54.850217,
+   "LONGITUDE": -1.3450198
+ },
+ {
+   "Carpark Name": "Seaham Green Street",
+   "Postcode": "SR7 7ET",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.837601,
+   "LONGITUDE": -1.3319119
+ },
+ {
+   "Carpark Name": "Seaham Marlbrough",
+   "Postcode": "SR7 7SA",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.83769,
+   "LONGITUDE": -1.336737
+ },
+ {
+   "Carpark Name": "Seaham Princess Road (former Theatre site)",
+   "Postcode": "SR7 7QT",
+   "Description": "Free",
+   "LATITUDE": 54.831372,
+   "LONGITUDE": -1.3365759
+ },
+ {
+   "Carpark Name": "Seaham Terrace Green aka North Terrace",
+   "Postcode": "SR7 7EU",
+   "Description": "Free (Coast)",
+   "LATITUDE": 54.839711,
+   "LONGITUDE": -1.33155
+ },
+ {
+   "Carpark Name": "Seaham Vane Tempest",
+   "Postcode": "SR7 7AF",
+   "Description": "Free (Coast)",
+   "LATITUDE": 54.846694,
+   "LONGITUDE": -1.3398442
+ },
+ {
+   "Carpark Name": "Sedgefield Library",
+   "Postcode": "TS213AT",
+   "Description": "Free",
+   "LATITUDE": 54.654013,
+   "LONGITUDE": -1.4483971
+ },
+ {
+   "Carpark Name": "Sherburn Village Community Centre",
+   "Postcode": "DH6 1HD",
+   "Description": "Free",
+   "LATITUDE": 54.774283,
+   "LONGITUDE": -1.5050266
+ },
+ {
+   "Carpark Name": "Shildon Association Street",
+   "Postcode": "DL4 1DX",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.634192,
+   "LONGITUDE": -1.6468668
+ },
+ {
+   "Carpark Name": "Shildon Dean Street",
+   "Postcode": "DL4 1EZ",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.633028,
+   "LONGITUDE": -1.6486119
+ },
+ {
+   "Carpark Name": "Shildon Railway Terrace East",
+   "Postcode": "DL4 2JD",
+   "Description": "Free",
+   "LATITUDE": 54.625324,
+   "LONGITUDE": -1.6446668
+ },
+ {
+   "Carpark Name": "Shildon Railway Terrace West",
+   "Postcode": "DL4 2JB",
+   "Description": "Free",
+   "LATITUDE": 54.625308,
+   "LONGITUDE": -1.6454104
+ },
+ {
+   "Carpark Name": "Shildon Robson Street North East",
+   "Postcode": "DL4 2HP",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.634785,
+   "LONGITUDE": -1.6440112
+ },
+ {
+   "Carpark Name": "Shildon Robson Street North West",
+   "Postcode": "DL4 2HP",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.634652,
+   "LONGITUDE": -1.644663
+ },
+ {
+   "Carpark Name": "Shildon Robson Street South East",
+   "Postcode": "DL4 1EB",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.634524,
+   "LONGITUDE": -1.6438895
+ },
+ {
+   "Carpark Name": "Shildon Robson Street South West",
+   "Postcode": "DL4 1EB",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.634463,
+   "LONGITUDE": -1.6445097
+ },
+ {
+   "Carpark Name": "Shotley Bridge (Derwent Valley Walk)",
+   "Postcode": "DH8 0NG",
+   "Description": "Free country park",
+   "LATITUDE": 54.875683,
+   "LONGITUDE": -1.8411516
+ },
+ {
+   "Carpark Name": "Sniperley Park and Ride",
+   "Postcode": "DH1 5AA",
+   "Description": "Park and Ride",
+   "LATITUDE": 54.792275,
+   "LONGITUDE": -1.6003749
+ },
+ {
+   "Carpark Name": "South Railway Street (Opp Duke of Seaham - formerly Duke of Wellington)",
+   "Postcode": "SR7 7ES",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.837588,
+   "LONGITUDE": -1.3329241
+ },
+ {
+   "Carpark Name": "Spennymoor Clarence Street",
+   "Postcode": "DL167SE",
+   "Description": "Free",
+   "LATITUDE": 54.697058,
+   "LONGITUDE": -1.6045689
+ },
+ {
+   "Carpark Name": "Spennymoor Dickens Street",
+   "Postcode": "DL166AS",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.699068,
+   "LONGITUDE": -1.6035563
+ },
+ {
+   "Carpark Name": "Spennymoor Rosa Street",
+   "Postcode": "DL167NB",
+   "Description": "Free",
+   "LATITUDE": 54.697057,
+   "LONGITUDE": -1.6070359
+ },
+ {
+   "Carpark Name": "Spennymoor Silver Street",
+   "Postcode": "DL166DF",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.698245,
+   "LONGITUDE": -1.6021679
+ },
+ {
+   "Carpark Name": "St Johns Chapel",
+   "Postcode": "DL131QF",
+   "Description": "Free",
+   "LATITUDE": 54.736335,
+   "LONGITUDE": -2.1804954
+ },
+ {
+   "Carpark Name": "Stanhope Dales Centre",
+   "Postcode": "DL132FJ",
+   "Description": "Dales Centre visitor car park",
+   "LATITUDE": 54.748593,
+   "LONGITUDE": -2.0079379
+ },
+ {
+   "Carpark Name": "Stanley Adjacent to Central Workingmens Club nr Ritson Street",
+   "Postcode": "DH9 6LU",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.868438,
+   "LONGITUDE": -1.6976293
+ },
+ {
+   "Carpark Name": "Stanley Arch Club, South Moor nr Geoffrey Terrace",
+   "Postcode": "DH9 7LW",
+   "Description": "Free unmarked",
+   "LATITUDE": 54.866045,
+   "LONGITUDE": -1.7077277
+ },
+ {
+   "Carpark Name": "Stanley Causey Arch",
+   "Postcode": "NE16 5EJ",
+   "Description": "Free country park",
+   "LATITUDE": 54.899769,
+   "LONGITUDE": -1.6819417
+ },
+ {
+   "Carpark Name": "Stanley Civic Hall nr Beamish Street",
+   "Postcode": "DH9 0SU",
+   "Description": "Free DCC Staff car park",
+   "LATITUDE": 54.871091,
+   "LONGITUDE": -1.6984509
+ },
+ {
+   "Carpark Name": "Stanley Front Street, Dipton nr Collierley School",
+   "Postcode": "DH9 9DA",
+   "Description": "Free unmarked",
+   "LATITUDE": 54.877629,
+   "LONGITUDE": -1.7614742
+ },
+ {
+   "Carpark Name": "Stanley Granville Avenue, Annfield Plain",
+   "Postcode": "DH9 8JF",
+   "Description": "Free unmarked",
+   "LATITUDE": 54.858568,
+   "LONGITUDE": -1.7390303
+ },
+ {
+   "Carpark Name": "Stanley Harperley Hotel",
+   "Postcode": "DH9 9TY",
+   "Description": "Free visitor car park",
+   "LATITUDE": 54.873103,
+   "LONGITUDE": -1.7244286
+ },
+ {
+   "Carpark Name": "Stanley Holmside Terrace, Craghead",
+   "Postcode": "DH9 6ET",
+   "Description": "Estate parking",
+   "LATITUDE": 54.849888,
+   "LONGITUDE": -1.6726312
+ },
+ {
+   "Carpark Name": "Stanley Mountsett Crematorium",
+   "Postcode": "DH9 9JP",
+   "Description": "Free crematorium visitor parking",
+   "LATITUDE": 54.888568,
+   "LONGITUDE": -1.7447761
+ },
+ {
+   "Carpark Name": "Stanley Old Bus Station Site",
+   "Postcode": "DH9 0HU",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.868523,
+   "LONGITUDE": -1.6992647
+ },
+ {
+   "Carpark Name": "Stanley Old Swimming Baths Site, High Street",
+   "Postcode": "DH9 0DF",
+   "Description": "Free",
+   "LATITUDE": 54.871315,
+   "LONGITUDE": -1.6910008
+ },
+ {
+   "Carpark Name": "Stanley Park Road (East), South Moor",
+   "Postcode": "DH9 7AW",
+   "Description": "Free unmarked",
+   "LATITUDE": 54.860171,
+   "LONGITUDE": -1.7051063
+ },
+ {
+   "Carpark Name": "Stanley Park Road (West), South Moor",
+   "Postcode": "DH9 7QF",
+   "Description": "Free unmarked",
+   "LATITUDE": 54.861422,
+   "LONGITUDE": -1.7061098
+ },
+ {
+   "Carpark Name": "Stanley Railway Street, Craghead",
+   "Postcode": "DH9 6EP",
+   "Description": "Free",
+   "LATITUDE": 54.850611,
+   "LONGITUDE": -1.6708965
+ },
+ {
+   "Carpark Name": "Stanley Rear of Council Offices (out of working hours)",
+   "Postcode": "DH9 0SU",
+   "Description": "Free DCC Staff car park",
+   "LATITUDE": 54.871244,
+   "LONGITUDE": -1.6984342
+ },
+ {
+   "Carpark Name": "Stanley Rear of Front Street/Scott Street",
+   "Postcode": "DH9 8AD",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.869417,
+   "LONGITUDE": -1.7011279
+ },
+ {
+   "Carpark Name": "Stanley Rear of Library, High Street",
+   "Postcode": "DH9 0DJ",
+   "Description": "Free unmarked, gravel",
+   "LATITUDE": 54.871841,
+   "LONGITUDE": -1.6927732
+ },
+ {
+   "Carpark Name": "Stanley Royal Road,  Rear of Royal Hotel",
+   "Postcode": "DH9 0JQ",
+   "Description": "Free (Town Centre)",
+   "LATITUDE": 54.872365,
+   "LONGITUDE": -1.6974909
+ },
+ {
+   "Carpark Name": "Stanley Swan Street, Catchgate",
+   "Postcode": "DH9 8LL",
+   "Description": "Free unmarked",
+   "LATITUDE": 54.863715,
+   "LONGITUDE": -1.7464441
+ },
+ {
+   "Carpark Name": "Stanley William Street, South Moor",
+   "Postcode": "DH9 7QP",
+   "Description": "Free",
+   "LATITUDE": 54.86093,
+   "LONGITUDE": -1.7068612
+ },
+ {
+   "Carpark Name": "Waskerley (Waskerley Way)",
+   "Postcode": "DH8 9DZ",
+   "Description": "Free country park",
+   "LATITUDE": 54.802982,
+   "LONGITUDE": -1.9228726
+ },
+ {
+   "Carpark Name": "West Auckland",
+   "Postcode": "DL149HJ",
+   "Description": "Free",
+   "LATITUDE": 54.631926,
+   "LONGITUDE": -1.7185315
+ },
+ {
+   "Carpark Name": "West Cornforth Reading Street",
+   "Postcode": "DL179LH",
+   "Description": "Free",
+   "LATITUDE": 54.702488,
+   "LONGITUDE": -1.5226599
+ },
+ {
+   "Carpark Name": "Wheatley Hill Ashmore Terrace/Front Street",
+   "Postcode": "DH6 3NP",
+   "Description": "Free",
+   "LATITUDE": 54.745685,
+   "LONGITUDE": -1.4174042
+ },
+ {
+   "Carpark Name": "Whitehall (Waskerley Way)",
+   "Postcode": "DH8 9AN",
+   "Description": "Free country park",
+   "LATITUDE": 54.825101,
+   "LONGITUDE": -1.881849
+ },
+ {
+   "Carpark Name": "Whitworth Road (Auckland Walk)",
+   "Postcode": "DL16 7QW",
+   "Description": "Free country park",
+   "LATITUDE": 54.69836,
+   "LONGITUDE": -1.6212982
+ },
+ {
+   "Carpark Name": "Willington Lido",
+   "Postcode": "DL150PF",
+   "Description": "Free",
+   "LATITUDE": 54.711767,
+   "LONGITUDE": -1.6940301
+ },
+ {
+   "Carpark Name": "Willington, Cambridge Avenue",
+   "Postcode": "DL150PN",
+   "Description": "Free",
+   "LATITUDE": 54.710342,
+   "LONGITUDE": -1.6918679
+ },
+ {
+   "Carpark Name": "Willington, Commercial Street",
+   "Postcode": "DL150PG",
+   "Description": "Free",
+   "LATITUDE": 54.711179,
+   "LONGITUDE": -1.6926531
+ },
+ {
+   "Carpark Name": "Willington, High Street",
+   "Postcode": "DL150PF",
+   "Description": "Free",
+   "LATITUDE": 54.711643,
+   "LONGITUDE": -1.6949002
+ },
+ {
+   "Carpark Name": "Willington, North Terrace",
+   "Postcode": "DL150QP",
+   "Description": "Free",
+   "LATITUDE": 54.709709,
+   "LONGITUDE": -1.6905069
+ },
+ {
+   "Carpark Name": "Willington, Park Top",
+   "Postcode": "DL150QH",
+   "Description": "Free",
+   "LATITUDE": 54.708523,
+   "LONGITUDE": -1.6835785
+ },
+ {
+   "Carpark Name": "Wingate (Wingate Quarry)",
+   "Postcode": "TS29 6NT",
+   "Description": "Free",
+   "LATITUDE": 54.729919,
+   "LONGITUDE": -1.4241522
+ }
+]
+
+      function initMap() {
+        var myLatLng = {lat: 54.729, lng: -1.881};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: myLatLng,
+          mapTypeId: google.maps.MapTypeId.HYBRID
+        });
+	for (i = 0; i < ebin.length; i++){
+	var marker = new google.maps.Marker({
+		position: new google.maps.LatLng(ebin[i]["LATITUDE"], ebin[i]["LONGITUDE"]),
+	map: map,
+	title: ebin[i]["Carpark Name"]
+	});
+	};
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5ZaUBWC55ln4f6pAua4TH9MA7WsTdXJk&callback=initMap">
+    </script>
+  </body>
+</html>

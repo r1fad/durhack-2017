@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+     var results = [
+  {
+    "Number": 13,
+    "Name": "Clayport CAP and Library",
+    "Address": "Millennium Place, Durham City. DH1 1WA",
+    "LATITUDE": 54.777938,
+    "LONGITUDE": -1.5753151
+  },
+  {
+    "Number": 21,
+    "Name": "Durham Jobcentre Plus",
+    "Address": "Elvet House, Hallgarth Street, Durham. DH1 3BP",
+    "LATITUDE": 54.772732,
+    "LONGITUDE": -1.5694315
+  },
+  {
+        "LATITUDE": 54.785851, 
+        "Address": "Belmont Library, Cheveley Park Shopping Centre, Belmont, Durham. DH1 2AA", 
+        "Number": 3, 
+        "LONGITUDE": -1.5257842, 
+        "Name": "Belmont Library"
+    }, 
+    {
+        "LATITUDE": 54.734571, 
+        "Address": "Durham Road, Bowburn. DH6 5AT", 
+        "Number": 7, 
+        "LONGITUDE": -1.5251716, 
+        "Name": "Bowburn Library"
+    }, 
+    {
+        "LATITUDE": 54.855154, 
+        "Address": "Station Road, Chester-le-Street. DH3 3BP", 
+        "Number": 11, 
+        "LONGITUDE": -1.5739752, 
+        "Name": "Chester-le-Street Library"
+    }, 
+    {
+        "LATITUDE": 54.660799, 
+        "Address": "Durham Road, Chilton, Ferryhill. DL17 0EX", 
+        "Number": 12, 
+        "LONGITUDE": -1.5583533, 
+        "Name": "Chilton Library"
+    }, 
+    {
+        "LATITUDE": 54.702889, 
+        "Address": "High Street, West Cornforth, Ferryhill. DL17 9HP", 
+        "Number": 17, 
+        "LONGITUDE": -1.5174412, 
+        "Name": "Cornforth Library"
+    }, 
+    {
+        "LATITUDE": 54.689868, 
+        "Address": "North Street, Ferryhill. DL17 8HX", 
+        "Number": 24, 
+        "LONGITUDE": -1.5549818, 
+        "Name": "Ferryhill Library"
+    }, 
+    {
+        "LATITUDE": 54.798965, 
+        "Address": "Alnwick Road, Newton Hall, Durham. DH1 5NL", 
+        "Number": 31, 
+        "LONGITUDE": -1.5774435, 
+        "Name": "Newton Hall Library"
+    }, 
+    {
+        "LATITUDE": 54.653761, 
+        "Address": "Front Street, Sedgefield. TS21 3AT", 
+        "Number": 39, 
+        "LONGITUDE": -1.448416, 
+        "Name": "Sedgefield Library"
+    }, 
+    {
+        "LATITUDE": 54.700284, 
+        "Address": "24 Cheapside, Spennymoor. DL16 6DJ", 
+        "Number": 44, 
+        "LONGITUDE": -1.5990445, 
+        "Name": "Spennymoor Library"
+    }, 
+    {
+        "LATITUDE": 54.749398, 
+        "Address": "High Street, Thornley. DH6 3EL", 
+        "Number": 49, 
+        "LONGITUDE": -1.4365998, 
+        "Name": "Thornley Library"
+    }, 
+    {
+        "LATITUDE": 54.698531, 
+        "Address": "Church Road, Trimdon. TS29 6PY", 
+        "Number": 50, 
+        "LONGITUDE": -1.4285843, 
+        "Name": "Trimdon Library"
+    }, 
+    {
+        "LATITUDE": 54.633204, 
+        "Address": "St Elizabeth's Close, Woodham Village, Newton Aycliffe. DL5 4UE", 
+        "Number": 55, 
+        "LONGITUDE": -1.5667077, 
+        "Name": "Woodham Community Centre"
+    }, 
+    {
+        "LATITUDE": 54.63026, 
+        "Address": "Carers Way, Newton Aycliffe. DL5 4SF", 
+        "Number": 56, 
+        "LONGITUDE": -1.5805872, 
+        "Name": "Pioneering Care Partnership"
+    }, 
+    {
+        "LATITUDE": 54.638532, 
+        "Address": "5 Ryder Court, Newton Aycliffe. DL5 4PB", 
+        "Number": 57, 
+        "LONGITUDE": -1.5765668, 
+        "Name": "Lifeline Community Action"
+    }, 
+    {
+        "LATITUDE": 54.780704, 
+        "Address": "Windsor Terrace, Haswell. DH6 2DY", 
+        "Number": 67, 
+        "LONGITUDE": -1.4207416, 
+        "Name": "Haswell Hazelwell Centre"
+    }, 
+    {
+        "LATITUDE": 54.713936, 
+        "Address": "Kielder Drive, Trimdon Grange. TS29 6PB", 
+        "Number": 73, 
+        "LONGITUDE": -1.4269864, 
+        "Name": "Trimdon Grange Community Centre"
+    }, 
+    {
+        "LATITUDE": 54.697589, 
+        "Address": "Hallgarth Road, Trimdon Village. TS29 6JX", 
+        "Number": 74, 
+        "LONGITUDE": -1.4288924, 
+        "Name": "Trimdon Village Community Centre"
+    }, 
+    {
+        "LATITUDE": 54.684182, 
+        "Address": "Coniston Road, Ferryhill. DL17 8EZ", 
+        "Number": 75, 
+        "LONGITUDE": -1.5557885, 
+        "Name": "The Ladder Centre, Ferryhill"
+    }, 
+    {
+        "LATITUDE": 54.598317, 
+        "Address": "North Terrace, Newton Aycliffe. DL5 6LF", 
+        "Number": 77, 
+        "LONGITUDE": -1.561707, 
+        "Name": "Aycliffe Village Hall"
+    }, 
+    {
+        "LATITUDE": 54.622663, 
+        "Address": "Burn Lane, Newton Aycliffe. DL5 4HT", 
+        "Number": 79, 
+        "LONGITUDE": -1.5693596, 
+        "Name": "Aycliffe Youth Centre"
+    }, 
+    {
+        "LATITUDE": 54.629135, 
+        "Address": "Morrison Close, Newton Aycliffe. DL5 4QZ", 
+        "Number": 80, 
+        "LONGITUDE": -1.5724976, 
+        "Name": "Agnew Community Centre"
+    }, 
+    {
+        "LATITUDE": 54.625935, 
+        "Address": "Sid Chaplin Drive, Newton Aycliffe. DL5 7PA", 
+        "Number": 81, 
+        "LONGITUDE": -1.5826607, 
+        "Name": "Burnhill Way Methodist Church"
+    }, 
+    {
+        "LATITUDE": 54.676528, 
+        "Address": "Front Street, Bishop Middleham. DL17 9AJ", 
+        "Number": 82, 
+        "LONGITUDE": -1.4902581, 
+        "Name": "Bishop Middleham Village Hall"
+    }, 
+    {
+        "LATITUDE": 54.652523, 
+        "Address": "Rectory Lane, Sedgefield. TS21 3AT", 
+        "Number": 84, 
+        "LONGITUDE": -1.4488512, 
+        "Name": "Ceddesfield Hall"
+    }, 
+    {
+        "LATITUDE": 54.682879, 
+        "Address": "Butterwick Road, Fishburn. TS21 4ED", 
+        "Number": 85, 
+        "LONGITUDE": -1.4329919, 
+        "Name": "Fishburn Youth and Community Centre"
+    }, 
+    {
+        "LATITUDE": 54.676729, 
+        "Address": "Front Street, Kirk Merrington. DL16 7HZ", 
+        "Number": 86, 
+        "LONGITUDE": -1.5962059, 
+        "Name": "Kirk Merrington Village Hall"
+    }, 
+    {
+        "LATITUDE": 54.615637, 
+        "Address": "Neville Parade, Newton Aycliffe. DL5 5DH", 
+        "Number": 88, 
+        "LONGITUDE": -1.5647883, 
+        "Name": "Neville Community Centre"
+    }, 
+    {
+        "LATITUDE": 54.663082, 
+        "Address": "Coleridge Road, Chilton. DL17 0HS", 
+        "Number": 89, 
+        "LONGITUDE": -1.5609175, 
+        "Name": "Henderson Community House"
+    }, 
+    {
+        "LATITUDE": 54.71216, 
+        "Address": "St David's Close, Spennymoor. DL16 6TA", 
+        "Number": 91, 
+        "LONGITUDE": -1.5871622, 
+        "Name": "Tudhoe Community Centre"
+    }, 
+    {
+        "LATITUDE": 54.702001, 
+        "Address": "Station Road, West Cornforth. DL17 9LA", 
+        "Number": 92, 
+        "LONGITUDE": -1.5246519, 
+        "Name": "West Cornforth Community Centre"
+    }, 
+    {
+        "LATITUDE": 54.859191, 
+        "Address": "Methodist Church, North Burns, Chester-le-Street. DH3 3TF", 
+        "Number": 94, 
+        "LONGITUDE": -1.5744934, 
+        "Name": "Cornerstones Centre for the Community at Chester-le-Street Methodist Church"
+    }, 
+    {
+        "LATITUDE": 54.83647, 
+        "Address": "Front Street, Great Lumley. DH3 4JD", 
+        "Number": 98, 
+        "LONGITUDE": -1.5439522, 
+        "Name": "Great Lumley Community Centre"
+    }, 
+    {
+        "LATITUDE": 54.860081, 
+        "Address": "Newcastle Road, Chester-le-Street. DH3 3TS", 
+        "Number": 99, 
+        "LONGITUDE": -1.5747022, 
+        "Name": "Chester-le-Street Community Centre"
+    }, 
+    {
+        "LATITUDE": 54.884921, 
+        "Address": "Iris Crescent, Ouston, Chester-le-Street. DH2 1RJ", 
+        "Number": 100, 
+        "LONGITUDE": -1.5988668, 
+        "Name": "Ouston Community Centre"
+    }, 
+    {
+        "LATITUDE": 54.855317, 
+        "Address": "Church Chare, Chester-le-Street. DH3 3PZ", 
+        "Number": 101, 
+        "LONGITUDE": -1.5691448, 
+        "Name": "Park View Community Association"
+    }, 
+    {
+        "LATITUDE": 54.848038, 
+        "Address": "Woodstone Village, Fence Houses, Houghton-le-Spring. DH4 6DS", 
+        "Number": 102, 
+        "LONGITUDE": -1.5188729, 
+        "Name": "Fence Houses Community Centre"
+    }, 
+    {
+        "LATITUDE": 54.852948, 
+        "Address": "South Approach, Chester-le-Street. DH2 2ES", 
+        "Number": 104, 
+        "LONGITUDE": -1.5805868, 
+        "Name": "Bullion Hall"
+    }, 
+    {
+        "LATITUDE": 54.804915, 
+        "Address": "Abbey Road, Pity Me. DH1 5GE", 
+        "Number": 109, 
+        "LONGITUDE": -1.575328, 
+        "Name": "Newton Hall Community Centre"
+    }, 
+    {
+        "LATITUDE": 54.766601, 
+        "Address": "Margaret Street, Ludworth. DH6 1NG", 
+        "Number": 110, 
+        "LONGITUDE": -1.4392363, 
+        "Name": "Ludworth Village Hall"
+    }, 
+    {
+        "LATITUDE": 54.721197, 
+        "Address": "Station Road East, Trimdon Station. TS29 6BS", 
+        "Number": 112, 
+        "LONGITUDE": -1.4119334, 
+        "Name": "Trimdon Station Community Centre"
+    }, 
+    {
+        "LATITUDE": 54.701917, 
+        "Address": "O'Hanlan Street, Spennymoor. DL16 6RY", 
+        "Number": 117, 
+        "LONGITUDE": -1.5982681, 
+        "Name": "Spennymoor Settlement"
+    }, 
+    {
+        "LATITUDE": 54.700068, 
+        "Address": "Rushmoor, Spennymoor. DL16 6PP", 
+        "Number": 118, 
+        "LONGITUDE": -1.5909159, 
+        "Name": "Spennymoor Youth Centre"
+    }, 
+    {
+        "LATITUDE": 54.78266, 
+        "Address": "Lisa Dixon Centre, Burt Close, Haswell, DH6 2DA", 
+        "Number": 125, 
+        "LONGITUDE": -1.4199828, 
+        "Name": "Haswell MENCAP"
+    }, 
+    {
+        "LATITUDE": 54.800285, 
+        "Address": "Front Street, South Hetton. DH6 2TH", 
+        "Number": 64, 
+        "LONGITUDE": -1.4092619, 
+        "Name": "South Hetton Robin Todd Centre"
+    }, 
+    {
+        "LATITUDE": 54.749571, 
+        "Address": "High Street, Thornley, DH6 3EL", 
+        "Number": 121, 
+        "LONGITUDE": -1.4351992, 
+        "Name": "Thornley Village Centre"
+    }, 
+    {
+        "LATITUDE": 54.741478, 
+        "Address": "Jack Lawson Terrace, Wheatley Hill. DH6 3RT", 
+        "Number": 120, 
+        "LONGITUDE": -1.4227923, 
+        "Name": "Wheatley Hill Children's Centre"
+    }, 
+    {
+        "LATITUDE": 54.702937, 
+        "Address": "66-70 High Street, Cornforth. DL17 9HS", 
+        "Number": 116, 
+        "LONGITUDE": -1.520358, 
+        "Name": "The Cornforth Partnership"
+    }        
+    ]
+
+  function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 10,
+    center: new google.maps.LatLng(54.7294, -1.8812),
+    mapTypeId: google.maps.MapTypeId.HYBRID
+    });
+    for (i = 0; i < results.length; i++) {
+      var latLng = new google.maps.LatLng(results[i]["LATITUDE"], results[i]["LONGITUDE"]);
+      var marker = new google.maps.Marker({
+        position: latLng,
+        title: results[i]["Name"],
+        map: map
+        });
+       marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+      }
+    }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCG8pGnzMYyEmoT2uDcEtEj5PlHR6VSYwE&callback=initMap">
+    </script>
+  </body>
+</html>
