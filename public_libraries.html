@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+     var results = [
+  {
+    "NAME": "ANNFIELD PLAIN",
+    "ADDRESS1": "NORTH ROAD",
+    "ADDRESS2": "",
+    "TOWN": "ANNFIELD PLAIN",
+    "POSTCODE": "DH9 8EZ",
+    "LATITUDE": 54.861899,
+    "LONGITUDE": -1.7420934
+  },
+  {
+    "NAME": "BARNARD CASTLE",
+    "ADDRESS1": "THE WITHAM",
+    "ADDRESS2": "2 HALL STREET",
+    "TOWN": "BARNARD CASTLE",
+    "POSTCODE": "DL128JB",
+    "LATITUDE": 54.543582,
+    "LONGITUDE": -1.9226808
+  },
+  {
+    "NAME": "BELMONT",
+    "ADDRESS1": "CHEVELEY PARK SHOPPING CENTRE",
+    "ADDRESS2": "",
+    "TOWN": "BELMONT",
+    "POSTCODE": "DH1 2AA",
+    "LATITUDE": 54.785869,
+    "LONGITUDE": -1.5257685
+  },
+  {
+    "NAME": "BISHOP AUCKLAND",
+    "ADDRESS1": "BISHOP AUCKLAND TOWN HALL",
+    "ADDRESS2": "MARKET PLACE",
+    "TOWN": "BISHOP AUCKLAND",
+    "POSTCODE": "DL147NP",
+    "LATITUDE": 54.665846,
+    "LONGITUDE": -1.6735535
+  },
+  {
+    "NAME": "BLACKHALL",
+    "ADDRESS1": "BACK MIDDLE STREET",
+    "ADDRESS2": "",
+    "TOWN": "BLACKHALL",
+    "POSTCODE": "TS274HD",
+    "LATITUDE": 54.747279,
+    "LONGITUDE": -1.2897919
+  },
+  {
+    "NAME": "BOWBURN",
+    "ADDRESS1": "DURHAM ROAD",
+    "ADDRESS2": "",
+    "TOWN": "BOWBURN",
+    "POSTCODE": "DH6 5AB",
+    "LATITUDE": 54.73458,
+    "LONGITUDE": -1.5252492
+  },
+  {
+    "NAME": "BRANDON",
+    "ADDRESS1": "LOWLAND ROAD",
+    "ADDRESS2": "",
+    "TOWN": "BRANDON",
+    "POSTCODE": "DH7 8NN",
+    "LATITUDE": 54.751731,
+    "LONGITUDE": -1.6295632
+  },
+  {
+    "NAME": "CHESTER LE STREET",
+    "ADDRESS1": "STATION ROAD",
+    "ADDRESS2": "",
+    "TOWN": "CHESTER-LE-STREET",
+    "POSTCODE": "DH3 3BP",
+    "LATITUDE": 54.855154,
+    "LONGITUDE": -1.5739752
+  },
+  {
+    "NAME": "CHILTON",
+    "ADDRESS1": "DURHAM ROAD",
+    "ADDRESS2": "",
+    "TOWN": "CHILTON",
+    "POSTCODE": "DL170EX",
+    "LATITUDE": 54.660808,
+    "LONGITUDE": -1.5583532
+  },
+  {
+    "NAME": "CONSETT",
+    "ADDRESS1": "VICTORIA ROAD",
+    "ADDRESS2": "",
+    "TOWN": "CONSETT",
+    "POSTCODE": "DH8 5AT",
+    "LATITUDE": 54.853143,
+    "LONGITUDE": -1.8327359
+  },
+  {
+    "NAME": "CORNFORTH",
+    "ADDRESS1": "HIGH STREET",
+    "ADDRESS2": "",
+    "TOWN": "WEST CORNFORTH",
+    "POSTCODE": "DL179HP",
+    "LATITUDE": 54.702916,
+    "LONGITUDE": -1.5174564
+  },
+  {
+    "NAME": "CROOK",
+    "ADDRESS1": "CIVIC CENTRE",
+    "ADDRESS2": "NORTH TERRACE",
+    "TOWN": "CROOK",
+    "POSTCODE": "DL159ES",
+    "LATITUDE": 54.715454,
+    "LONGITUDE": -1.7454598
+  },
+  {
+    "NAME": "DURHAM CLAYPORT",
+    "ADDRESS1": "MILLENIUM PLACE",
+    "ADDRESS2": "",
+    "TOWN": "DURHAM CITY",
+    "POSTCODE": "DH1 1WA",
+    "LATITUDE": 54.777946,
+    "LONGITUDE": -1.5752528
+  },
+  {
+    "NAME": "EASINGTON COLLIERY",
+    "ADDRESS1": "SEASIDE LANE",
+    "ADDRESS2": "",
+    "TOWN": "EASINGTON COLLIERY",
+    "POSTCODE": "SR8 3PN",
+    "LATITUDE": 54.788077,
+    "LONGITUDE": -1.3321995
+  },
+  {
+    "NAME": "ESH WINNING",
+    "ADDRESS1": "THE WYNDS",
+    "ADDRESS2": "",
+    "TOWN": "ESH WINNING",
+    "POSTCODE": "DH7 9AD",
+    "LATITUDE": 54.767455,
+    "LONGITUDE": -1.7077231
+  },
+  {
+    "NAME": "FERRYHILL",
+    "ADDRESS1": "NORTH STREET",
+    "ADDRESS2": "",
+    "TOWN": "FERRYHILL",
+    "POSTCODE": "DL178HX",
+    "LATITUDE": 54.689895,
+    "LONGITUDE": -1.5549971
+  },
+  {
+    "NAME": "HORDEN",
+    "ADDRESS1": "SUNDERLAND ROAD",
+    "ADDRESS2": "",
+    "TOWN": "HORDEN",
+    "POSTCODE": "SR8 4PF",
+    "LATITUDE": 54.767418,
+    "LONGITUDE": -1.3211778
+  },
+  {
+    "NAME": "LANCHESTER",
+    "ADDRESS1": "NEWBIGGIN LANE",
+    "ADDRESS2": "",
+    "TOWN": "LANCHESTER",
+    "POSTCODE": "DH7 0NT",
+    "LATITUDE": 54.822852,
+    "LONGITUDE": -1.7456883
+  },
+  {
+    "NAME": "MURTON",
+    "ADDRESS1": "BARNES ROAD",
+    "ADDRESS2": "",
+    "TOWN": "MURTON",
+    "POSTCODE": "SR7 9QR",
+    "LATITUDE": 54.819437,
+    "LONGITUDE": -1.3878951
+  },
+  {
+    "NAME": "NEWTON AYCLIFFE",
+    "ADDRESS1": "NEWTON AYCLIFFE LEISURE CENTRE",
+    "ADDRESS2": "BEVERIDGE ARCADE",
+    "TOWN": "NEWTON AYCLIFFE",
+    "POSTCODE": "DL5 4EH",
+    "LATITUDE": 54.619247,
+    "LONGITUDE": -1.5741343
+  },
+  {
+    "NAME": "NEWTON HALL",
+    "ADDRESS1": "ALNWICK ROAD",
+    "ADDRESS2": "",
+    "TOWN": "NEWTON HALL",
+    "POSTCODE": "DH1 5NL",
+    "LATITUDE": 54.798982,
+    "LONGITUDE": -1.5774434
+  },
+  {
+    "NAME": "PELTON",
+    "ADDRESS1": "OUSTON LANE",
+    "ADDRESS2": "",
+    "TOWN": "PELTON",
+    "POSTCODE": "DH2 1EZ",
+    "LATITUDE": 54.874069,
+    "LONGITUDE": -1.6026678
+  },
+  {
+    "NAME": "PETERLEE",
+    "ADDRESS1": "BURNHOPE WAY",
+    "ADDRESS2": "",
+    "TOWN": "PETERLEE",
+    "POSTCODE": "SR8 1NT",
+    "LATITUDE": 54.760743,
+    "LONGITUDE": -1.3377621
+  },
+  {
+    "NAME": "SACRISTON",
+    "ADDRESS1": "PLAWSWORTH ROAD",
+    "ADDRESS2": "",
+    "TOWN": "SACRISTON",
+    "POSTCODE": "DH7 6HJ",
+    "LATITUDE": 54.818271,
+    "LONGITUDE": -1.6251267
+  },
+  {
+    "NAME": "SEAHAM",
+    "ADDRESS1": "SEAHAM CONTACT CENTRE",
+    "ADDRESS2": "ST JOHN'S SQUARE",
+    "TOWN": "SEAHAM",
+    "POSTCODE": "SR7 7JE",
+    "LATITUDE": 54.836448,
+    "LONGITUDE": -1.3347489
+  },
+  {
+    "NAME": "SEDGEFIELD",
+    "ADDRESS1": "FRONT STREET",
+    "ADDRESS2": "",
+    "TOWN": "SEDGEFIELD",
+    "POSTCODE": "TS213AT",
+    "LATITUDE": 54.653788,
+    "LONGITUDE": -1.4484001
+  },
+  {
+    "NAME": "SHILDON",
+    "ADDRESS1": "CHURCH STREET",
+    "ADDRESS2": "",
+    "TOWN": "SHILDON",
+    "POSTCODE": "DL4 1DU",
+    "LATITUDE": 54.63283,
+    "LONGITUDE": -1.6482264
+  },
+  {
+    "NAME": "SHOTTON",
+    "ADDRESS1": "CO-OPERATIVE TERRACE",
+    "ADDRESS2": "",
+    "TOWN": "SHOTTON",
+    "POSTCODE": "DH6 2LW",
+    "LATITUDE": 54.761176,
+    "LONGITUDE": -1.3877018
+  },
+  {
+    "NAME": "SOUTH MOOR",
+    "ADDRESS1": "SEVERN CRESCENT",
+    "ADDRESS2": "",
+    "TOWN": "SOUTHMOOR",
+    "POSTCODE": "DH9 7PX",
+    "LATITUDE": 54.862448,
+    "LONGITUDE": -1.7029398
+  },
+  {
+    "NAME": "SPENNYMOOR",
+    "ADDRESS1": "24 CHEAPSIDE",
+    "ADDRESS2": "",
+    "TOWN": "SPENNYMOOR",
+    "POSTCODE": "DL166JD",
+    "LATITUDE": 54.70032,
+    "LONGITUDE": -1.5990442
+  },
+  {
+    "NAME": "STANLEY",
+    "ADDRESS1": "THE LOUISA CENTRE",
+    "ADDRESS2": "FRONT STREET",
+    "TOWN": "STANLEY",
+    "POSTCODE": "DH9 0TE",
+    "LATITUDE": 54.868764,
+    "LONGITUDE": -1.7022078
+  },
+  {
+    "NAME": "THORNLEY",
+    "ADDRESS1": "HIGH STREET",
+    "ADDRESS2": "",
+    "TOWN": "THORNLEY",
+    "POSTCODE": "DH6 3EL",
+    "LATITUDE": 54.749371,
+    "LONGITUDE": -1.4366157
+  },
+  {
+    "NAME": "TRIMDON",
+    "ADDRESS1": "CHURCH ROAD",
+    "ADDRESS2": "",
+    "TOWN": "TRIMDON",
+    "POSTCODE": "TS296PY",
+    "LATITUDE": 54.698541,
+    "LONGITUDE": -1.4286463
+  },
+  {
+    "NAME": "WILLINGTON",
+    "ADDRESS1": "46A HIGH STREET",
+    "ADDRESS2": "",
+    "TOWN": "WILLINGTON",
+    "POSTCODE": "DL150PG",
+    "LATITUDE": 54.710993,
+    "LONGITUDE": -1.6934306
+  },
+  {
+    "NAME": "WINGATE",
+    "ADDRESS1": "FRONT STREET",
+    "ADDRESS2": "",
+    "TOWN": "WINGATE",
+    "POSTCODE": "TS285AA",
+    "LATITUDE": 54.724939,
+    "LONGITUDE": -1.3766186
+  },
+  {
+    "NAME": "WOLSINGHAM",
+    "ADDRESS1": "TOWN HALL",
+    "ADDRESS2": "",
+    "TOWN": "WOLSINGHAM",
+    "POSTCODE": "DL133AB",
+    "LATITUDE": 54.730133,
+    "LONGITUDE": -1.8834913
+  },
+  {
+    "NAME": "WOODHOUSE CLOSE",
+    "ADDRESS1": "WOODHOUSE LANE",
+    "ADDRESS2": "",
+    "TOWN": "BISHOP AUCKLAND",
+    "POSTCODE": "DL146JX",
+    "LATITUDE": 54.649822,
+    "LONGITUDE": -1.6799429
+  },
+  {
+    "NAME": "LANGLEY PARK",
+    "ADDRESS1": "UNIT 6 OLD CO-OPERATIVE BUILDINGS",
+    "ADDRESS2": "FRONT STREET",
+    "TOWN": "LANGLEY PARK",
+    "POSTCODE": "DH7 9XE",
+    "LATITUDE": 54.798535,
+    "LONGITUDE": -1.6709461
+  },
+  {
+    "NAME": "COUNDON",
+    "ADDRESS1": "THE EDEN CENTRE",
+    "ADDRESS2": "VICTORIA LANE",
+    "TOWN": "COUNDON",
+    "POSTCODE": "DL148NL",
+    "LATITUDE": 54.661114,
+    "LONGITUDE": -1.6281552
+  }
+]
+  function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 10,
+    center: new google.maps.LatLng(54.7294, -1.8812),
+    mapTypeId: google.maps.MapTypeId.HYBRID
+    });
+    for (i = 0; i < results.length; i++) {
+      var latLng = new google.maps.LatLng(results[i]["LATITUDE"], results[i]["LONGITUDE"]);
+      var marker = new google.maps.Marker({
+        position: latLng,
+        title: results[i]["NAME"],
+        map: map
+        });
+       marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+      }
+    }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCG8pGnzMYyEmoT2uDcEtEj5PlHR6VSYwE&callback=initMap">
+    </script>
+  </body>
+</html>
