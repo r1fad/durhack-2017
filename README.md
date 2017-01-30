@@ -1,4 +1,4 @@
-# durhack-2017
+# Durhack 2017
 Visualizing car parks, cemeteries and  internet access points
 
 ## What it does
